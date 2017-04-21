@@ -1,0 +1,858 @@
+﻿F<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="initial-scale = 1.0, user-scalable = no" />
+    <link href="css/plugins.css" type="text/css" rel="stylesheet" />
+    <link href="css/page.css" type="text/css" rel="stylesheet" />
+    <link href="css/jquery-ui.css" type="text/css" rel="stylesheet" />
+    <link href="css/common.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/custom.js" defer="defer"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+     <script type="text/javascript" src="js/touch.js"></script>
+    <script type="text/javascript" src="js/jquery.zoom.js"></script>
+    <script type="text/javascript" src="js/omnificence.paging.js" defer="defer"></script>
+    <!-- Zoom -->
+    <script type="text/javascript" src="js/jquery.zoom.js"></script>
+    <script type="text/javascript" src="js/swipe.js"></script>
+    </head>
+<body ondblclick="showFullscreen();" onload="init();preloadimages()" >
+    <img src="img/Pdf1.png" id="press"  style="position:absolute;z-index:3;width:45px;right:13px;top:13px;" onclick="downloadPDF()"/>
+    <img src="img/Help1.png" style="position:absolute; right:146px; top:13px; z-index:3;width:45px;" onclick="helpTab()" />
+     <img src="img/Reference12.png" style="position:absolute; right:77px; top:13px; z-index:3;width:45px;" onclick="referenceTab()" />
+    <div id="my" style="position:absolute;margin:auto;z-index:-1;width:95%;visibility:visible;">  
+             <canvas id="can" width="754" height="590" style="margin-left:191px;margin-top:95px;" >
+          </canvas>
+            </div>
+    <div class="container" onclick="closeTab()" id="master">
+        <div class="header">
+            <div class="logo"><img src="img/Logo.png" style="height:70px;"/></div>
+            <div id="title"></div>
+        </div>
+        <div class="sidemenu" onclick="annot();">
+            <div id="ppt">
+            </div>
+        </div>
+         <div class="content" >
+             <div class="zoomarea" onclick="hideAnnotation();">
+                <img id="zoomImage" src="" usemap="#annotationmap" />
+                <map name="annotationmap" id="annotationmap">
+                    <area id="venus" shape="rect" coords="50,50,200,200" alt="The planet venus" onclick="javascript:alert('test');" />
+                </map>
+            </div>
+            <div class="tools">
+                <div id="info" onclick="showInfoPopup();" class="menuicon" ></div>
+                <div id="quiz" onclick="showQuizPopup1();" class="quizicon" ></div>
+            </div>
+          </div >
+          <div class="contentborder" ></div>
+        <div class="bottommenu" >
+            <div id="annotationbar"   style="margin: 10px auto; width: 600px; margin-left: 25%; height: 70%; background: url(img/line.png) repeat-x; margin-top: 30px;">
+            </div>
+            <div id="magnifier" onclick="magnifierZoom()" ></div>
+   <audio id="myAudio">
+ <source src="audio/Silence06min.mp3"
+         type='audio/mp4'>
+</audio>
+            <div onclick="aud_play_pause()"><img src="img/play.png" class="play" id="playpause"/></div>
+        </div>
+            <div id="drawPen"  onclick="whiteBoard()" style="z-index:1;margin-top: 103px; margin-left: 971px; position: relative; border-radius: 8px; background-size: 100% 100%;height: 150px;width: 50px;pointer-events:initial;" >
+                <img  class="pen" src="img/pencil123.png" style="width:50px; height:160px;" />
+          </div>
+         </div>
+    <div class="modal fade ui-widget-overlay" id="Quizpop1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                         Page 2 Question 1
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeQuizPopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body " id="Quiz1">
+                    <div class="Quizpaging">
+                        <div class="page slide active quiz">
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                               <div style="margin-left: 60px;">
+                                   <input type="hidden" id="Answer" value="CNI nephrotoxicity">
+                                   <input type="hidden" id="QuestionID" value="1"/>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Acute graft rejection" id="radio1"
+                                                    class="css-checkbox" />
+                                                <label for="radio1" class="css-label radGroup1">
+                                                    Acute graft rejection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Delayed graft functioning (DGF)" id="radio2"
+                                                    class="css-checkbox" />
+                                                <label for="radio2" class="css-label radGroup1">
+                                                    Delayed graft functioning (DGF)</label><br />
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="Infection"  id="radio3" class="css-checkbox" />
+                                                <label for="radio3" class="css-label radGroup1">
+                                                    Infection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="CNI nephrotoxicity" onclick="" id="radio4" class="css-checkbox" />
+                                                <label for="radio4" class="css-label radGroup1">
+                                                    CNI nephrotoxicity</label>
+                                            </p>
+                                        </div>
+                              <div id="imgcont8but1" onclick="submitQuizans(this);" class="submitequizbutton"></div>
+                            <div id="AnswerDisp" style="display: none;"> <strong>Sorry !</strong><br><br> <div class="ImgAns"><span class="glyphicon glyphicon-remove"></span></div> Incorrect answer <p>The correct answer is <span><strong>CNI nephrotoxicity</strong></span></p></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="modal fade ui-widget-overlay" id="Quizpop2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 2 Question 2
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeQuizPopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body ">
+                    <div class="Quizpaging">
+                        <div class="page slide active quiz" >
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                       <div style="margin-left: 60px;">
+                                   <input type="hidden" id="Answer1" value="Acute graft rejection"/>
+                                   <input type="hidden" id="QuestionID" value="1"/>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Acute graft rejection" id="radio5"
+                                                    class="css-checkbox" />
+                                                <label for="radio5" class="css-label radGroup1">
+                                                    Acute graft rejection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Delayed graft functioning (DGF)" id="radio6"
+                                                    class="css-checkbox" />
+                                                <label for="radio6" class="css-label radGroup1">
+                                                    Delayed graft functioning (DGF)</label><br />
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="Infection"  id="radio7" class="css-checkbox" />
+                                                <label for="radio7" class="css-label radGroup1">
+                                                    Infection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="CNI nephrotoxicity" onclick="" id="radio8" class="css-checkbox" />
+                                                <label for="radio8" class="css-label radGroup1">
+                                                    CNI nephrotoxicity</label>
+                                            </p>
+                                        </div>
+                            <div id="Button1" onclick="submitQuizans1(this);" class="submitequizbutton"></div>
+                            <div id="AnswerDisp"  style="display: none;"> <strong>Sorry !</strong><br><br> <div class="ImgAns"><span class="glyphicon glyphicon-remove"></span></div> Incorrect answer <p>The correct answer is <span><strong>CNI nephrotoxicity</strong></span></p></div>
+                             </div>
+                           </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="modal fade ui-widget-overlay" id="Quizpop3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 3 Question 1
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeQuizPopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body " >
+                    <div class="QuizpagingQ2">
+                        <div class="page slide active  quizQ2" >
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                       <div style="margin-left: 60px;">
+                                   <input type="hidden" id="Answer2" value="Delayed graft functioning (DGF)">
+                                   <input type="hidden" id="QuestionID" value="1"/>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Acute graft rejection" id="radio9"
+                                                    class="css-checkbox" />
+                                                <label for="radio9" class="css-label radGroup1">
+                                                    Acute graft rejection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Delayed graft functioning (DGF)" id="radio10"
+                                                    class="css-checkbox" />
+                                                <label for="radio10" class="css-label radGroup1">
+                                                    Delayed graft functioning (DGF)</label><br />
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="Infection"  id="radio11" class="css-checkbox" />
+                                                <label for="radio11" class="css-label radGroup1">
+                                                    Infection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="CNI nephrotoxicity" onclick="" id="radio12" class="css-checkbox" />
+                                                <label for="radio12" class="css-label radGroup1">
+                                                    CNI nephrotoxicity</label>
+                                            </p>
+                                        </div>
+                            <div id="Button2" onclick="submitQuizans2(this);" class="submitequizbutton"></div>
+                            <div id="AnswerDisp" style="display: none;"> <strong>Sorry !</strong><br><br> <div class="ImgAns"><span class="glyphicon glyphicon-remove"></span></div> Incorrect answer <p>The correct answer is <span><strong>CNI nephrotoxicity</strong></span></p></div>
+                                     </div>
+                             </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="modal fade ui-widget-overlay" id="Quizpop4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 3 Question 2
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeQuizPopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body " >
+                    <div class="QuizpagingQ2">
+                        <div class="page slide active quizQ2" >
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                       <div style="margin-left: 60px;">
+                                   <input type="hidden" id="Answer3" value="Infection">
+                                   <input type="hidden" id="QuestionID" value="1"/>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Acute graft rejection" id="radio13"
+                                                    class="css-checkbox" />
+                                                <label for="radio13" class="css-label radGroup1">
+                                                    Acute graft rejection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Delayed graft functioning (DGF)" id="radio14"
+                                                    class="css-checkbox" />
+                                                <label for="radio14" class="css-label radGroup1">
+                                                    Delayed graft functioning (DGF)</label><br />
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="Infection"  id="radio15" class="css-checkbox" />
+                                                <label for="radio15" class="css-label radGroup1">
+                                                    Infection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="CNI nephrotoxicity" onclick="" id="radio16" class="css-checkbox" />
+                                                <label for="radio16" class="css-label radGroup1">
+                                                    CNI nephrotoxicity</label>
+                                            </p>
+                                        </div>
+                             <div id="Button3" onclick="submitQuizans3(this);" class="submitequizbutton"></div>
+                            <div id="AnswerDisp" style="display: none;"> <strong>Sorry !</strong><br><br> <div class="ImgAns"><span class="glyphicon glyphicon-remove"></span></div> Incorrect answer <p>The correct answer is <span><strong>CNI nephrotoxicity</strong></span></p></div>
+                           </div>
+                         </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade ui-widget-overlay" id="Quizpop5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 4 Question 1
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeQuizPopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body " >
+                    <div class="QuizpagingQ3">
+                        <div class="page slide active quizQ3" >
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                       <div style="margin-left: 60px;">
+                                   <input type="hidden" id="Answer4" value="Infection">
+                                   <input type="hidden" id="QuestionID" value="1"/>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Acute graft rejection" id="radio17"
+                                                    class="css-checkbox" />
+                                                <label for="radio17" class="css-label radGroup1">
+                                                    Acute graft rejection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Delayed graft functioning (DGF)" id="radio18"
+                                                    class="css-checkbox" />
+                                                <label for="radio18" class="css-label radGroup1">
+                                                    Delayed graft functioning (DGF)</label><br />
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="Infection"  id="radio19" class="css-checkbox" />
+                                                <label for="radio19" class="css-label radGroup1">
+                                                    Infection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="CNI nephrotoxicity" onclick="" id="radio20" class="css-checkbox" />
+                                                <label for="radio20" class="css-label radGroup1">
+                                                    CNI nephrotoxicity</label>
+                                            </p>
+                                        </div>
+                             <div id="Button4" onclick="submitQuizans4(this);" class="submitequizbutton"></div>
+                            <div id="AnswerDisp" style="display: none;"> <strong>Sorry !</strong><br><br> <div class="ImgAns"><span class="glyphicon glyphicon-remove"></span></div> Incorrect answer <p>The correct answer is <span><strong>CNI nephrotoxicity</strong></span></p></div>
+                                          </div>
+                                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade ui-widget-overlay" id="Quizpop6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 4 Question 2
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeQuizPopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body " >
+                    <div class="QuizpagingQ3">
+                        <div class="page slide active quizQ3" >
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                       <div style="margin-left: 60px;">
+                                   <input type="hidden" id="Answer5" value="Infection">
+                                   <input type="hidden" id="QuestionID" value="1"/>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Acute graft rejection" id="radio21"
+                                                    class="css-checkbox" />
+                                                <label for="radio21" class="css-label radGroup1">
+                                                    Acute graft rejection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" onclick="" value="Delayed graft functioning (DGF)" id="radio22"
+                                                    class="css-checkbox" />
+                                                <label for="radio22" class="css-label radGroup1">
+                                                    Delayed graft functioning (DGF)</label><br />
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="Infection"  id="radio23" class="css-checkbox" />
+                                                <label for="radio23" class="css-label radGroup1">
+                                                    Infection</label>
+                                            </p>
+                                            <p style="margin-top: 20px;">
+                                                <input type="radio" name="radiog_lite" value="CNI nephrotoxicity" onclick="" id="radio24" class="css-checkbox" />
+                                                <label for="radio24" class="css-label radGroup1">
+                                                    CNI nephrotoxicity</label>
+                                            </p>
+                                        </div>
+                             <div id="Button5" onclick="submitQuizans5(this);" class="submitequizbutton"></div>
+                            <div id="AnswerDisp" style="display: none;"> <strong>Sorry !</strong><br><br> <div class="ImgAns"><span class="glyphicon glyphicon-remove"></span></div> Incorrect answer <p>The correct answer is <span><strong>CNI nephrotoxicity</strong></span></p></div>
+                                      </div>
+                              </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal fade ui-widget-overlay" id="page2annot4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content " >
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 2 Question 1
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot" >
+                    <div class="paging">
+                        <div class="page slide active" id="swipe">
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                        </div>
+                                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="modal fade ui-widget-overlay" id="page2annot4_s1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 2 Question 2
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active">
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade ui-widget-overlay" id="page2annot4_s2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 2 Question 3
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active">
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                        </div>
+                               </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="modal fade ui-widget-overlay" id="page2annot4_s3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 2 Question 4
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active">
+                            <p>Treatment was continued until disease progression, unacceptable toxic effects  occurred, a complete response was achieved, surgical resection became possible, or the patient requested or the physician decided that therapy should be withdrawn.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="modal fade ui-widget-overlay" id="page3annot3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 3 Question
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active">
+                            <p>The proportion of patients who had an objective response was chosen as the primary endpoint because no data on median overall survival for FOLFIRI in combination with either bevacizumab or cetuximab in the first-line treatment of metastatic colorectal cancer were available at the time of the study design.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade ui-widget-overlay" id="page3annot4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 3 Question
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal" >X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active">
+                            <p>Of the 752 randomly assigned subjects 380 were in the FOLFIRI plus cetuximab group and 372 were assigned to the FOLFIRI plus bevacizumab group. The ITT population in the groups was 297 and 295 respectively</p>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade ui-widget-overlay" id="page4annot1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 4 Question
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>The baseline characteristics of the treatment groups were similar (table 1). With more exclusions in the FOLFIRI plus cetuximab group, the per-protocol population of assessable patients consisted of 526 patients; 255 in the cetuximab group and 271 in the bevacizumab group.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade ui-widget-overlay" id="page5annot4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 5 Question
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>In the primary analysis, complete or partial responses were reported in 184 (62%) of 297 patients in the cetuximab group and 171 (58%) of 295 patients in the bevacizumab group (OR 1.18, 95% CI 0.85–1.64; p=0.18; table 2). The proportion of patients who achieved a complete response was higher in the cetuximab than in the bevacizumab group (table 2). In the predefined per protocol population, the proportion of patients who achieved a response was signifi cantly higher in the cetuximab group than in the bevacizumab group (184 [72%] of 255 vs 171 [63%] of 271, respectively; p=0.017).</p>
+</div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade ui-widget-overlay" id="page6annot1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 6 Question 1
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>Progression-free survival was similar between the treatment groups: median progression-free survival was 10.0 months (95% CI 8.8–10.8) in the cetuximab group and 10.3 months (9.8–11.3) in the bevacizumab group (HR 1.06, 95% CI 0.88–1.26; p=0.55). Median overall survival was 28.7 months (95% CI 24.0–36.6) in the cetuximab group compared with 25.0 months (22.7–27.6) in the bevacizumab group (HR 0.77, 95% CI 0.62–0.96; p=0.017;  Subgroup analyses of overall survival suggested a particular benefi t for patients in the cetuximab group who had rectal cancer and for those with leucocyte counts of less than 8 × 10⁹ cells per L</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal fade ui-widget-overlay" id="page6annot3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 6 Question 2
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>In patients with tumours that were wild-type at all tested RAS loci, the proportions of patients achieving a response were similar between groups (OR 1.28, 95% CI 0.83–1.99; p=0.32; table 2); progression-free survival was also similar between the treatment groups (median progression-free survival 10.4 months [95% CI 9.5–12.2] in the cetuximab group vs 10.2 months [9.3–11.5] in the bevacizumab group; HR 0.93 [95% CI 0.74–1.17]; p=0.54). </p></div>
+                               </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="modal fade ui-widget-overlay" id="page6annot4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 6 Question 3
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>However, a marked advantage in overall survival was noted for patients in the cetuximab group compared with the bevacizumab group (median overall survival 33.1 months [95% CI 24.5–39.4] vs 25.6 months [22.7–28.6]; HR 0.70, 95% CI 0.53–0.92; p=0.011</p>
+<p>For patients with other tumour RAS mutations (ie, RAS mutant, but wild-type at KRAS exon 2), there was no significant difference in the proportion of patients who had a response to treatment between those in the cetuximab group and those in the bevacizumab group (OR 0.45, 95% CI 0.17–1.21; p=0.14)</p>
+<p>31 progression events were noted in the other RAS mutant population in the cetuximab group, as were 22 in the other RAS mutant population in the bevacizumab group; median progression-free survival was 6.1 months (95% CI 5.3–8.5) in the cetuximab group and 12.2 months (9.7–13.9) in the bevacizumab group (HR 2.22, 95% CI 1.28–3.86; p=0.004).</p></div>
+                      </div>
+                </div>
+           </div>
+        </div>
+    </div>
+       <div class="modal fade ui-widget-overlay" id="page12annot1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 12 Question 
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>Panitumumab, a fully human antibody targeting EGFR, has antitumor activity in patients with mCRC both as monotherapy and in combination with chemotherapy.1,4,5 In the phase III randomized PRIME (Panitumumab Randomized Trial in Combination With Chemotherapy for Metastatic Colorectal</p>
+                        <p>Cancer to Determine Efficacy) study, the addition of panitumumab to fluorouracil (FU), leucovorin, and oxaliplatin (FOLFOX4) improved PFS and, in an updated analysis, OS when compared with FOLFOX4 alone in patients with wild-type (WT) KRAS mCRC.</p></div>
+                                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                     <div class="modal fade ui-widget-overlay" id="page14annot4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 14 Question
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>Baseline demographics and clinical characteristics
+Between April 2009 and December 2011, 285 patients with WT KRAS exon 2 mCRC were enrolled from 60 sites, with 142 patients randomly assigned to panitumumab plus mFOLFOX6 and 143 to bevacizumab plus mFOLFOX6, comprising the primary analysis ITT set; 278 patients received treatment.
+</p></div>
+                           </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="modal fade ui-widget-overlay" id="page15annot1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 15 Question 1
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p></p>
+<p>In the primary analysis of theWTKRAS exon 2 ITT group (data cutoff,May30, 2012), PFS was similar between the panitumumab and bevacizumab arms (HR, 0.87;95%CI, 0.65 to 1.17; P.353). Median PFS was 10.9 months (95% CI, 9.4 to 13.0 months) and 10.1 months (95% CI, 9.0 to 12.6 months) in the panitumumab and bevacizumab arms, respectively.</p>
+                            <p>Analyses of the estimated treatment effects of small predefined subpopulations were generally similar to that in the overall population. PFS results from an additional follow-up visit were consistent with the primary analysis.</p>
+                        </div>
+              </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="modal fade ui-widget-overlay" id="page15annot3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 15 Question 2
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>OS outcomes were immature at the time of the primary analysis, with 87 deaths (31%) reported in the WT KRAS exon 2 ITT group.</p>
+<p>An additional follow-up visit was performed approximately 1 year from the last patient enrolled (data cut-off, January 3, 2013), with 130 deaths (46%) reported. In this analysis, median OS was 34.2 months (95% CI, 26.6 months to not reached) in the panitumumab arm and 24.3 months (95% CI, 21.0 to 29.2 months) in the bevacizumab arm (HR, 0.62; 95% CI, 0.44 to 0.89; P =.009).</p>
+<p>The median OS in the extended WT RAS subgroup was 41.3 months in the panitumumab group and 28.9 months in the bevacizumab group.</p></div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <div class="modal fade ui-widget-overlay" id="page15annot4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 15 Question 3
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>In patients who were WT by extended RAS analysis, PFS was improved in the panitumumab arm relative to the bevacizumab arm (HR,0.65;95% CI,0.44to0.96;P =.029;datacutoff,May30,2012).Median PFS was 13.0
+months (95% CI, 10.9 to 15.1 months) and 9.5 months (95% CI, 9.0 to 12.7 months) in the panitumumab and bevacizumab arms, respectively. PFS results from the January 3, 2013, follow-up were consistent with the primary analysis
+</p></div>
+              </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <div class="modal fade ui-widget-overlay" id="page15annot6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 15 Question 4
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>In the WT RAS subgroup, median OS (data cutoff, January 3, 2013) was 41.3months in the panitumumab arm(95%CI, 28.8 to 41.3 months) and 28.9 months (95% CI, 23.9 to 31.3 months) in the bevacizumab arm(HR,0.63;95%CI, 0.39 to 1.02;P =.058). In the WT KRAS exon 2/mutant other RAS subgroup, with 10 deaths (42%), median OS was 27.0 months (95% CI, 15.1 months to not reached) in the panitumumab arm and, with 21 deaths (78%), 16.6 months (95% CI, 13.3 to 21.6 months) in the bevacizumab arm (HR,
+0.41; 95% CI, 0.19 to 0.87; P =.020)</p></div>
+               </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <div class="modal fade ui-widget-overlay" id="page21annot1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 21 Question
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>Although subpopulations were small, the treatment effect on PFS favoring the panitumumab arm in the WT RAS group was observedacross subpopulations predefined by baseline covariates, except by race of other, With a total of 51 patients in the WT KRAS exon 2/mutant other RAS exons subgroup, PFS seemed worse in the panitumumab arm (HR, 1.39; 95% CI, 0.73 to 2.64; P.318).
+</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    <div class="modal fade ui-widget-overlay" id="page22annot1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                            Page 22 Question
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closePopup()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>In 278 treated patients from the WT KRAS exon 2 ITT population, 126 patients (91%) in the panitumumab arm and 115 patients (83%) in the bevacizumab arm experienced AEs with a worst grade of3 (Table 4). Any-grade AEs with5% difference between arms are listed in Appendix Table A5 (online only). Patients in the panitumumab arm experienced more skin toxicity and hypomagnesemia, whereas those in the bevacizumab arm experienced more hypertension.</p></div>
+               </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade ui-widget-overlay" id="infoModel1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p style="font-size: 16px; text-align: center">
+                            More Info Page 1
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeInfoPopup()" data-dismiss="modal" style="margin-top: 0px;">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active">
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        </div>
+                        <div class="page slide">
+                            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                        </div>
+                        <div class="page slide">
+                            <p>"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>
+                        </div>
+                        <div class="page slide">
+                            <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
+                        </div>
+                        <div class="page slide">
+                            <p>"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+      <div class="modal fade ui-widget-overlay" id="help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                           Help
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeBlock()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>This id help tab</p></div>
+               </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="modal fade ui-widget-overlay" id="reference" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="opacity: 1; display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <p class="modaltitlep">
+                         Reference
+                        </p>
+                        <button type="button" class="btn btn-default modalclosebut close" onclick="closeBlock1()" data-dismiss="modal">X</button>
+                    </div>
+                </div>
+                <div class="modal-body anot">
+                    <div class="paging">
+                        <div class="page slide active"><p>This id   Reference tab</p></div>
+              </div>
+                </div>
+           </div>
+        </div>
+    </div>
+    <div id="arrowHelp" style="position:absolute;">
+        </div>
+    <div class="tabicon" id="helpTab">
+             <div class="tabclose" onclick="closeTab()">
+            x
+        </div>
+        <div class="tabhead">
+            <h3>Help</h3>
+        </div>
+        <div class="tabcontent">
+            Help tab containes help information for the user
+        </div>
+    </div> 
+    <div id="arrowRefer" style="position:absolute;">
+        </div>
+    <div class="tabicon" id="referTab">
+        <div class="tabclose" onclick="closeTab()">
+            x
+        </div>
+        <div class="tabhead">
+            <h3>Reference</h3>
+        </div>
+        <div class="tabcontent">
+            Reference tab containes reference information for the user
+        </div>
+    </div> 
+    <span id="timeE" style="position: absolute;display:none;"></span>
+</body>
+</html>

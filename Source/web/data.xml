@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<player>
+  
+  <page id="page1" name="" title="Heinmann et al" no="Page 1" image="img/PDF1/Studypage1.png" thumbimage="img/PDF1/Studypage1_thumb.png" >
+    <annotation id="a1" x="0" y="2000" dx="0" dy="465" dx1="165" dy1="560"  percent="80"   hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a2" x="750" y="2000" dx="170" dy="465" dx1="338" dy1="560"  percent="80"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+     
+  </page>
+  <page id="page2" name="" title="Heinmann et al" no="Page 2" image="img/PDF1/Studypage2.png" thumbimage="img/PDF1/Studypage2_thumb.png">
+    <annotation id="a3" x="270" y="800" dx="65" dy="225" dx1="230" dy1="260"  percent="70"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a4" x="270" y="1050" dx="65" dy="270" dx1="235" dy1="415"  percent="70"  hasslide="false" slideid="" hasquestion="true" qid="Quizpop1"/>
+    <annotation id="a5" x="270" y="1650" dx="65" dy="422" dx1="235" dy1="480"  percent="70"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a6" x="850" y="1150" dx="235" dy="296" dx1="405" dy1="394"  percent="70"  hasslide="true" slideid="page2annot4" hasquestion="false" qid=""/>
+   
+  </page>
+  <page id="page3" name="" title="Heinmann et al" no="Page 3" image="img/PDF1/Studypage3.png" thumbimage="img/PDF1/Studypage3_thumb.png">
+    <annotation id="a7" x="0" y="650" dx="0" dy="180" dx1="170" dy1="225"  percent="70"  hasslide="false" slideid="" hasquestion="true" qid="Quizpop3"/>
+    <annotation id="a8" x="0" y="1000" dx="0" dy="268" dx1="170" dy1="325"  percent="70"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a9" x="0" y="1200" dx="0" dy="335" dx1="170" dy1="430"  percent="70"  hasslide="true" slideid="page3annot3" hasquestion="false" qid=""/>
+    <annotation id="a9a" x="550" y="800" dx="170" dy="244" dx1="410" dy1="530"  percent="60"  hasslide="true" slideid="page3annot4" hasquestion="false" qid=""/>
+  </page>
+  <page id="page4" name="" title="Heinmann et al" no="Page 4" image="img/PDF1/4.png" thumbimage="img/PDF1/4_thumb.png">
+    <annotation id="a10" x="200" y="700" dx="60" dy="234" dx1="396" dy1="567" percent="50"   hasslide="true" slideid="page4annot1" hasquestion="true" qid="Quizpop5"/>
+   
+  </page>
+  <page id="page5" name="" title="Heinmann et al" no="Page 5" image="img/PDF1/5.png" thumbimage="img/PDF1/5_thump.png">
+    <annotation id="a11" x="1" y="700" dx="1" dy="154" dx1="164" dy1="291"  percent="80"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a12" x="1" y="1300"  dx="1" dy="350" dx1="163" dy1="400"   percent="80"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a13" x="750" y="400" dx="167" dy="124" dx1="340" dy1="222"  percent="80"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a14" x="675" y="1325" dx="166" dy="330" dx1="398" dy1="567"  percent="70"  hasslide="true" slideid="page5annot4" hasquestion="false" qid=""/>
+
+  </page>
+  <page id="page6" name="" title="Heinmann et al" no="Page 6" image="img/PDF1/6.png" thumbimage="img/PDF1/6_thump.png">
+    <annotation id="a15" x="50" y="400" dx="2" dy="98" dx1="196" dy1="246"  percent="70"  hasslide="true" slideid="page6annot1" hasquestion="false" qid=""/>
+    <annotation id="a16" x="800" y="400" dx="198" dy="101" dx1="396" dy1="245"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a17" x="0" y="900" dx="2" dy="244" dx1="165" dy1="560"  percent="70" hasslide="true" slideid="page6annot3" hasquestion="false" qid=""/>
+    <annotation id="a18" x="800" y="900" dx="212" dy="94" dx1="396" dy1="397"  percent="70" hasslide="true" slideid="page6annot4" hasquestion="false" qid=""/>
+    <annotation id="a19" x="200" y="1800" dx="63" dy="493" dx1="234" dy1="571"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a20" x="900" y="1600" dx="233" dy="422" dx1="400" dy1="531"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+  </page>
+  <page id="page7" name="" title="Heinmann et al" no="Page 7" image="img/PDF1/7.png" thumbimage="img/PDF1/7_thump.png">
+    
+
+
+  </page>
+  <page id="page8" name="" title="Heinmann et al" no="Page 8" image="img/PDF1/8.png" thumbimage="img/PDF1/8_thump.png">
+  
+
+  </page>
+  <page id="page9" name="" title="Heinmann et al" no="Page 9" image="img/PDF1/9.png" thumbimage="img/PDF1/9_thump.png">
+    <annotation id="a21" x="0" y="1100" dx="0" dy="302" dx1="166" dy1="384"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a22" x="0" y="1700" dx="0" dy="475" dx1="166" dy1="567"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a23" x="600" y="800" dx="165" dy="212" dx1="335" dy1="312"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+  </page>
+  <page id="page10" name="" title="Heinmann et al" no="Page 10" image="img/PDF1/10.png" thumbimage="img/PDF1/10_thump.png">
+    <annotation id="a24" x="200" y="1100" dx="65" dy="276" dx1="231" dy1="398"  percent="70"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a25" x="850" y="400" dx="231" dy="122" dx1="398" dy1="203"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a26" x="850" y="900" dx="231" dy="231" dx1="398" dy1="362"  percent="70"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a27" x="850" y="1400" dx="231" dy="395" dx1="398" dy1="499"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+  </page>
+  <page id="page11" name="" title="Heinmann et al" no="Page 11" image="img/PDF1/11.png" thumbimage="img/PDF1/11_thump.png">
+   
+
+  </page>
+  <page id="page12" name="" title="Schwartzberg et al" no="Page 12" image="img/PDF2/p2page3.png" thumbimage="img/PDF2/p2page3_thumb.png">
+    <annotation id="a28" x="800" y="1600" dx="247" dy="458" dx1="404" dy1="549"  percent="70" hasslide="true" slideid="page12annot1" hasquestion="false" qid=""/>
+
+  </page>
+  <page id="page13" name="" title="Schwartzberg et al" no="Page 13" image="img/PDF2/p2page4.png" thumbimage="img/PDF2/p2page4_thumb.png">
+    <annotation id="a29" x="0" y="800" dx="0" dy="224" dx1="197" dy1="253"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a30" x="0" y="1200" dx="0" dy="342" dx1="196" dy1="415"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a31" x="0" y="1500" dx="0" dy="463" dx1="198" dy1="537"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+
+
+  </page>
+  <page id="page14" name="" title="Schwartzberg et al" no="Page 14" image="img/PDF2/p2page5.png" thumbimage="img/PDF2/p2page5_thumb.png">
+    <annotation id="a32" x="100" y="100" dx="24" dy="51" dx1="231" dy1="96"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a33" x="100" y="500" dx="24" dy="169" dx1="232" dy1="237"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a34" x="800" y="100" dx="234" dy="42" dx1="443" dy1="109"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a35" x="55" y="900" dx="14" dy="274" dx1="450" dy1="558"  percent="60" hasslide="true" slideid="page14annot4" hasquestion="false" qid=""/>
+
+  </page>
+  <page id="page15" name="" title="Schwartzberg et al" no="Page 15" image="img/PDF2/p2page6.png" thumbimage="img/PDF2/p2page6_thumb.png">
+    <annotation id="a36" x="30" y="100" dx="0" dy="18" dx1="202" dy1="199"  percent="70" hasslide="true" slideid="page15annot1" hasquestion="false" qid=""/>
+    <annotation id="a37" x="0" y="900" dx="0" dy="256" dx1="206" dy1="323"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a38" x="0" y="1350" dx="0" dy="359" dx1="207" dy1="537"  percent="70" hasslide="true" slideid="page15annot3" hasquestion="false" qid=""/>
+    <annotation id="a39" x="825" y="100" dx="209" dy="27" dx1="418" dy1="211"  percent="70"  hasslide="true" slideid="page15annot4" hasquestion="false" qid=""/>
+    <annotation id="a40" x="825" y="900" dx="209" dy="308" dx1="420" dy1="346"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a49" x="825" y="1300" dx="209" dy="366" dx1="423" dy1="542"  percent="70" hasslide="true" slideid="page15annot6" hasquestion="false" qid=""/>
+
+  </page>
+  <page id="page16" name="" title="Schwartzberg et al" no="Page 16" image="img/PDF2/p2page7.png" thumbimage="img/PDF2/p2page7_thumb.png">
+    <annotation id="a41" x="100" y="50" dx="20" dy="21" dx1="230" dy1="54"  percent="70"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a42" x="100" y="250" dx="22" dy="81" dx1="230" dy1="164"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a43" x="800" y="100" dx="233" dy="36" dx1="441" dy1="109"  percent="65"  hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a44" x="800" y="350" dx="232" dy="109" dx1="442" dy1="182"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+  </page>
+  <page id="page17" name="" title="Schwartzberg et al" no="Page 17" image="img/PDF2/p2page8.png" thumbimage="img/PDF2/p2page8_thumb.png">
+    <annotation id="a45" x="100" y="50" dx="22" dy="17" dx1="232" dy1="73"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a46" x="100" y="1000" dx="25" dy="283" dx1="231" dy1="366"  percent="70" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a47" x="800" y="500" dx="233" dy="163" dx1="444" dy1="248"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a48" x="800" y="1000" dx="235" dy="322" dx1="448" dy1="364"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+
+  </page>
+  <page id="page18" name="" title="Schwartzberg et al" no="Page 18" image="img/PDF2/p2page9.png" thumbimage="img/PDF2/p2page9_thumb.png">
+    <annotation id="a50" x="0" y="150" dx="0" dy="35" dx1="206" dy1="85"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a51" x="0" y="300" dx="0" dy="85" dx1="204" dy1="138"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a52" x="0" y="500" dx="0" dy="185" dx1="202" dy1="251"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+    <annotation id="a53" x="0" y="1000" dx="0" dy="291" dx1="206" dy1="429"  percent="65" hasslide="false" slideid="" hasquestion="false" qid=""/>
+  </page>
+  <page id="page19" name="" title="Schwartzberg et al" no="Page 19" image="img/PDF2/p2page10.png" thumbimage="img/PDF2/p2page10_thumb.png">
+
+  </page>
+  <page id="page20" name="" title="Schwartzberg et al" no="Page 20" image="img/PDF2/p2page11.png" thumbimage="img/PDF2/p2page11_thumb.png">
+
+  </page>
+  <page id="page21" name="" title="Schwartzberg et al" no="Page 21" image="img/PDF2/p2page12.png" thumbimage="img/PDF2/p2page12_thumb.png">
+    <annotation id="a54" x="100" y="700" dx="20" dy="238" dx1="453" dy1="369"  percent="60" hasslide="true" slideid="page21annot1" hasquestion="false" qid=""/>
+
+  </page>
+  <page id="page22" name="" title="Schwartzberg et al" no="Page 22" image="img/PDF2/p2page13.png" thumbimage="img/PDF2/p2page13_thumb.png">
+    <annotation id="a55" x="100" y="75" dx="15" dy="16" dx1="453" dy1="285"  percent="60" hasslide="true" slideid="page22annot1" hasquestion="false" qid=""/>
+
+  </page>
+  <page id="page23" name="" title="Schwartzberg et al" no="Page 23" image="img/PDF2/p2page14.png" thumbimage="img/PDF2/p2page14_thumb.png">
+
+  </page>
+  <page id="page24" name="" title="Schwartzberg et al" no="Page 24" image="img/PDF2/p2page15.png" thumbimage="img/PDF2/p2page15_thumb.png">
+
+  </page>
+  <page id="page25" name="" title="Schwartzberg et al" no="Page 25" image="img/PDF2/p2page16.png" thumbimage="img/PDF2/p2page16_thumb.png">
+
+  </page>
+  <page id="page26" name="" title="Schwartzberg et al" no="Page 26" image="img/PDF2/p2page17.png" thumbimage="img/PDF2/p2page17_thumb.png">
+
+  </page>
+  <page id="page27" name="" title="Schwartzberg et al" no="Page 27" image="img/PDF2/p2page18.png" thumbimage="img/PDF2/p2page18_thumb.png">
+    <annotation id="a56" x="350" y="800" dx="0" dy="229" dx1="420" dy1="437"  percent="60" hasslide="false" slideid="" hasquestion="false" qid=""/>
+
+  </page>
+</player>

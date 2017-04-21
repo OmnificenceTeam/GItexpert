@@ -1,0 +1,169 @@
+.paging {
+    width:598px;
+    height:425px;
+    padding-left:50px;
+    padding-right:50px;
+    font-family: 'Glyphicons Halflings';
+    /*border:1px solid gray;*/
+    overflow:hidden;
+}
+ .paging .pagePrev {
+    background-image:url(../img/back-button.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    width:32px;
+    height:31px;
+    position:relative;
+    top:180px;
+    left:-33px;
+}
+.paging .pageNext {
+    background-image:url(../img/next-button.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    position:relative;
+    width:32px;
+    height:31px;
+    top:210px;
+    left:100%;
+}
+
+.paging .page {
+    position:absolute;
+    /*left:700px;*/      
+}
+
+
+
+        
+        
+.paging .page.active {
+    transition:left 0.5s ease-out;
+    position:absolute;
+    left:70px;
+    text-align:justify;
+}
+/*.paging .page.active {
+    transition:right 0.5s ease-out;
+    position:absolute;
+    left:70px;
+    text-align:justify;
+}*/
+
+.Quizpaging {
+    width:598px;
+    height:425px;
+    padding-left:50px;
+    padding-right:50px;
+    font-family: 'Glyphicons Halflings';
+    /*border:1px solid gray;*/
+    overflow:hidden;
+}
+ .Quizpaging .QuizpagePrev {
+    background-image:url(../img/back-button.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    width:32px;
+    height:31px;
+    position:relative;
+    top:180px;
+    left:-33px;
+}
+.Quizpaging .QuizpageNext {
+    background-image:url(../img/next-button.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    position:relative;
+    width:32px;
+    height:31px;
+    top:210px;
+    left:100%;
+}
+.Quizpaging .page {
+    position:absolute;
+    /*left:700px;*/      
+}
+.Quizpaging .page.active {
+    transition:left 0.5s ease-out;
+    position:absolute;
+    left:70px;
+    text-align:justify;
+}
+.QuizpagingQ2 {
+    width:598px;
+    height:425px;
+    padding-left:50px;
+    padding-right:50px;
+    font-family: 'Glyphicons Halflings';
+    /*border:1px solid gray;*/
+    overflow:hidden;
+}
+.QuizpagingQ2 .QuizpagePrev {
+    background-image:url(../img/back-button.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    width:32px;
+    height:31px;
+    position:relative;
+    top:180px;
+    left:-33px;
+}
+.QuizpagingQ2 .QuizpageNext {
+    background-image:url(../img/next-button.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    position:relative;
+    width:32px;
+    height:31px;
+    top:210px;
+    left:100%;
+}
+.QuizpagingQ2 .page {
+    position:absolute;
+    /*left:700px;*/      
+}
+.QuizpagingQ2 .page.active {
+    transition:left 0.5s ease-out;
+    position:absolute;
+    left:70px;
+    text-align:justify;
+}
+.QuizpagingQ3 {
+    width:598px;
+    height:425px;
+    padding-left:50px;
+    padding-right:50px;
+    font-family: 'Glyphicons Halflings';
+    /*border:1px solid gray;*/
+    overflow:hidden;
+}
+ .QuizpagingQ3 .QuizpagePrev {
+    background-image:url(../img/back-button.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    width:32px;
+    height:31px;
+    position:relative;
+    top:180px;
+    left:-33px;
+}
+.QuizpagingQ3 .QuizpageNext {
+    background-image:url(../img/next-button.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    position:relative;
+    width:32px;
+    height:31px;
+    top:210px;
+    left:100%;
+}
+.QuizpagingQ3 .page {
+    position:absolute;
+    /*left:700px;*/      
+}
+.QuizpagingQ3 .page.active {
+    transition:left 0.5s ease-out;
+    position:absolute;
+    left:70px;
+    text-align:justify;
+}
